@@ -72,10 +72,6 @@ public class ReserveController {
 
     @PostMapping("/save")
     public ResponseEntity<Reserve> createReservations(@RequestBody Reserve reserve) {
-        // Here you should look up the Teacher and Room entities by their IDs and set them on the Reserve object
-        // You can use the TeacherRepository and RoomRepository for this purpose
-
-        // Example:
         Teacher teacher = teacherRepository.findById(reserve.getTeacher().getId()).orElseThrow();
         Room room = roomRepository.findById(reserve.getRoom().getId()).orElseThrow();
 
